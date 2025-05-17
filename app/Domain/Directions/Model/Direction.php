@@ -3,9 +3,10 @@
 namespace App\Domain\Directions\Model;
 
 use App\Domain\Service\Model\Service;
+use App\Models\Doctor;
 use Illuminate\Database\Eloquent\Model;
 
-class Directions extends Model
+class Direction extends Model
 {
     protected $fillable = [
         'name' ,
@@ -15,5 +16,10 @@ class Directions extends Model
     public function service()
     {
         return $this->hasMany(Service::class , 'direction_id');
+    }
+
+    public function doctor()
+    {
+        return $this->hasMany(Doctor::class , 'direction_id');
     }
 }

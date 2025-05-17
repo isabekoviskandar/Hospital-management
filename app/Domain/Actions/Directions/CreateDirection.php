@@ -5,7 +5,7 @@ namespace App\Domain\Actions\Directions;
 
 use App\Api\Requests\CreateDirectionRequest;
 use App\Api\Resources\DirectionResource;
-use App\Domain\Directions\Model\Directions;
+use App\Domain\Directions\Model\Direction;
 
 class CreateDirection{
 
@@ -14,7 +14,7 @@ class CreateDirection{
     {
         $validate = $request->validated();
 
-        $direction = Directions::create($validate);
+        $direction = Direction::create($validate);
 
         return new DirectionResource($direction);
     }

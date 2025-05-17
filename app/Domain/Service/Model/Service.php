@@ -2,7 +2,7 @@
 
 namespace App\Domain\Service\Model;
 
-use App\Domain\Directions\Model\Directions;
+use App\Domain\Directions\Model\Direction;
 use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
@@ -16,6 +16,6 @@ class Service extends Model
 
     public function direction()
     {
-        return $this->belongsTo(Directions::class , 'direction_id');
+        return $this->belongsTo(Direction::class , 'direction_id');
     }
 }

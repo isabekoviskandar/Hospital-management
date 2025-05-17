@@ -3,14 +3,14 @@
 
 namespace App\Domain\Actions\Directions;
 
-use App\Domain\Directions\Model\Directions;
+use App\Domain\Directions\Model\Direction;
 
 class DeleteDirection{
 
 
     public function handle($id)
     {
-        $direction = Directions::findOrFail($id);
+        $direction = Direction::findOrFail($id);
 
         $direction->delete();
 

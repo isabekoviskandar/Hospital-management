@@ -2,10 +2,9 @@
 
 namespace App\Api\Requests;
 
-
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateDirectionRequest extends FormRequest
+class CreateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +22,9 @@ class UpdateDirectionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
-            'status' => 'required|integer',
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
         ];
     }
 }

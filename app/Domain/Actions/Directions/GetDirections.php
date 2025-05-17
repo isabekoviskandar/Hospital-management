@@ -4,13 +4,13 @@
 namespace App\Domain\Actions\Directions;
 
 use App\Api\Resources\DirectionResource;
-use App\Domain\Directions\Model\Directions;
+use App\Domain\Directions\Model\Direction;
 
 class GetDirections{
 
     public function handle()
     {
-        $direction = Directions::all();
+        $direction = Direction::all();
 
         return DirectionResource::collection($direction);
     }
