@@ -24,3 +24,5 @@ Route::delete('/delete-service/{id}' , [ServiceController::class , 'destroy']);
 
 Route::get('/doctors' , [DoctorController::class , 'index']);
 Route::post('/create-doctor' , [DoctorController::class , 'store']);
+Route::put('/update-doctor/{doctor}' , [DoctorController::class , 'update']);
+Route::delete('/delete-doctor/{doctor}' , [DoctorController::class , 'destroy']);

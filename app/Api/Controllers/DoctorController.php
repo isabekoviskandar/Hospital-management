@@ -3,9 +3,11 @@
 namespace App\Api\Controllers;
 
 use App\Api\Requests\CreateDoctorRequest;
-use App\Api\Requests\CreateUserRequest;
+use App\Api\Requests\UpdateDoctorRequest;
 use App\Domain\Actions\Doctor\CreateDoctor;
+use App\Domain\Actions\Doctor\DeleteDoctor;
 use App\Domain\Actions\Doctor\GetDoctors;
+use App\Domain\Actions\Doctor\UpdateDoctor;
 
 class DoctorController
 {
@@ -14,11 +16,18 @@ class DoctorController
         return $getDoctors->handle();
     }
 
-
-    public function store(CreateDoctorRequest $request , CreateUserRequest $user_request, CreateDoctor $creator)
+    public function store(CreateDoctorRequest $request, CreateDoctor $creator)
     {
+        return $creator->handle($request);
+    }
 
-        return $creator->handle($request , $user_request);
+    public function update(UpdateDoctorRequest $request ,UpdateDoctor $update, $id)
+    {
+        return $update->handle($request , $id);
+    }
 
+    public function destroy(DeleteDoctor $delete,  $id)
+    {
+        return $delete->handle($id);
     }
 }
