@@ -20,18 +20,23 @@ class CreateDoctorRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
-    {
-        return [
-            'first_name' => 'required|string',
-            'last_name' => 'required|string',
-            'direction_id' => 'required',
-            'date_of_birth' => 'required',
-            'gender' => 'required',
-            'salary_type' => 'required|integer',
-            'salary' => 'required',
-            'profile_picture' => 'nullable|mimes:png,jpg,jpeg',
-            'bio' => 'nullable|string',
-        ];
-    }
+public function rules(): array
+{
+    return [
+        'name' => 'required|string',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|string|min:6',
+        'first_name' => 'required|string',
+        'last_name' => 'required|string',
+        'direction_id' => 'required|integer',
+        'date_of_birth' => 'required|date',
+        'address' => 'required|string',
+        'gender' => 'required|string',
+        'salary_type' => 'required|integer',
+        'salary' => 'required|numeric',
+        'profile_picture' => 'nullable|mimes:png,jpg,jpeg',
+        'bio' => 'nullable|string',
+    ];
+}
+
 }
